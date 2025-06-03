@@ -11,9 +11,19 @@ config_version=5
 [application]
 
 config/name="fp-ges-tes"
+run/main_scene="uid://ce7jyqqr07sax"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/scale=3.0
 
 [dotnet]
 
 project/assembly_name="fp-ges-tes"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"

@@ -1,0 +1,218 @@
+[gd_scene load_steps=26 format=3 uid="uid://dbkff1o5c0mne"]
+
+[ext_resource type="Texture2D" uid="uid://b1lctq7xyft4d" path="res://art/Soccorpia Asset Pack/Player sheets/Player Idles/Soccer Player Sprite(1)-Sheet.png" id="1_1scg8"]
+[ext_resource type="Texture2D" uid="uid://b0meuyw4pw78p" path="res://art/Soccorpia Asset Pack/Player sheets/Running Sheets/Soccer Player Sprite(1)-Running Sheet.png" id="2_g1ldd"]
+[ext_resource type="Texture2D" uid="uid://ctsxtskpaf55b" path="res://art/Soccorpia Asset Pack/Player sheets/Victory Dances/Soccer Player Sprite(1)-Victory Dance.png" id="2_hq23e"]
+
+[sub_resource type="GDScript" id="GDScript_hq23e"]
+script/source = "extends CharacterBody2D  # Use CharacterBody2D for handling movement
+
+# Speed of the player
+var speed = 200
+
+# Declare the AnimatedSprite2D node with @onready
+@onready var animated_sprite = $AnimatedSprite2D
+
+# Update function to move the player
+func _process(delta):
+	# Create a new velocity vector
+	var move_direction = Vector2()
+
+	# Check for input and set direction
+	if Input.is_action_pressed(\"ui_right\"):  # Right
+		move_direction.x += 1
+		animated_sprite.flip_h = false  # Face right
+	elif Input.is_action_pressed(\"ui_left\"):  # Left
+		move_direction.x -= 1
+		animated_sprite.flip_h = true  # Face left
+
+	if Input.is_action_pressed(\"ui_up\"):  # Up
+		move_direction.y -= 1
+	elif Input.is_action_pressed(\"ui_down\"):  # Down
+		move_direction.y += 1
+
+	# Normalize the direction vector to avoid faster movement diagonally
+	if move_direction.length() > 0:
+		move_direction = move_direction.normalized() * speed
+
+	# Update the velocity of the CharacterBody2D
+	velocity = move_direction
+
+	# Move the character using the built-in method
+	move_and_slide()
+
+	# Set the animation based on movement direction
+	if velocity.length() > 0:
+		animated_sprite.play(\"walking\")  # Replace with your walking animation name
+	else:
+		animated_sprite.play(\"idle\")  # Replace with your idle animation name
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2abds"]
+atlas = ExtResource("1_1scg8")
+region = Rect2(0, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3kjm"]
+atlas = ExtResource("1_1scg8")
+region = Rect2(100, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6awbb"]
+atlas = ExtResource("1_1scg8")
+region = Rect2(200, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxjea"]
+atlas = ExtResource("1_1scg8")
+region = Rect2(300, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt4b7"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(0, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hha0l"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(100, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koq7h"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(200, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2tbd"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(300, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcqf6"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(400, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qqr4"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(500, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grke1"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(600, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edeyu"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(700, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d057d"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(800, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p45j0"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(900, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87ry6"]
+atlas = ExtResource("2_hq23e")
+region = Rect2(1000, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqqqm"]
+atlas = ExtResource("2_g1ldd")
+region = Rect2(0, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svgyj"]
+atlas = ExtResource("2_g1ldd")
+region = Rect2(100, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfpcx"]
+atlas = ExtResource("2_g1ldd")
+region = Rect2(200, 0, 100, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hu1k"]
+atlas = ExtResource("2_g1ldd")
+region = Rect2(300, 0, 100, 103)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwlao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2abds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3kjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6awbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxjea")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt4b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hha0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koq7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2tbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcqf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qqr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grke1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edeyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d057d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p45j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87ry6")
+}],
+"loop": true,
+"name": &"victory_dance",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqqqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svgyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfpcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hu1k")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drwrm"]
+size = Vector2(11, 16)
+
+[node name="player" type="CharacterBody2D"]
+script = SubResource("GDScript_hq23e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_gwlao")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -12)
+shape = SubResource("RectangleShape2D_drwrm")
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]

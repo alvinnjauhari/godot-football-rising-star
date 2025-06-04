@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=4 uid="uid://c4j20atvjsa3t"]
+
+[ext_resource type="Texture2D" uid="uid://cya62qalix43c" path="res://art/Hana Caraka - Topdown Tileset [sample]/Tileset/Spring - simplified.png" id="1_syip4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mqhf"]
+texture = ExtResource("1_syip4")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i4dot"]
+sources/0 = SubResource("TileSetAtlasSource_6mqhf")
+
+[node name="world0" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAAEAP//AAAAAAAAAAAEAAIAAAAAAAAAAAAHAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_i4dot")

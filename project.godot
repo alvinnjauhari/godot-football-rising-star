@@ -11,13 +11,10 @@ config_version=5
 [application]
 
 config/name="fp-ges-tes"
-<<<<<<< Updated upstream
-run/main_scene="uid://ce7jyqqr07sax"
-=======
 run/main_scene="uid://c4j20atvjsa3t"
->>>>>>> Stashed changes
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<Updatedupstreamrun/main_scene="uid://ce7jyqqr07sax"
 
 [display]
 

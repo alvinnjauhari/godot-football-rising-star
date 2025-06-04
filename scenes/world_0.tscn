@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4j20atvjsa3t"]
+
+[ext_resource type="Script" uid="uid://dcorhs66khuj7" path="res://scripts/world_0.gd" id="1_c81cj"]
+[ext_resource type="Texture2D" uid="uid://cya62qalix43c" path="res://art/Hana Caraka - Topdown Tileset [sample]/Tileset/Spring - simplified.png" id="1_syip4"]
+[ext_resource type="Texture2D" uid="uid://dj617gf6ob67y" path="res://assets/map/MAP.jpeg" id="2_i4dot"]
+[ext_resource type="PackedScene" uid="uid://dbkff1o5c0mne" path="res://sprites/player1.tscn" id="3_c81cj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mqhf"]
+texture = ExtResource("1_syip4")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcyrs"]
+texture = ExtResource("2_i4dot")
+0:0/size_in_atlas = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i4dot"]
+sources/0 = SubResource("TileSetAtlasSource_6mqhf")
+sources/1 = SubResource("TileSetAtlasSource_bcyrs")
+
+[node name="world0" type="Node2D"]
+script = ExtResource("1_c81cj")
+metadata/_edit_vertical_guides_ = [0.0]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_i4dot")
+
+[node name="player" parent="." instance=ExtResource("3_c81cj")]
+position = Vector2(24, 33)

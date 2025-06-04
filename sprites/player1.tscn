@@ -1,5 +1,6 @@
 <<<<<<< Updated upstream:sprites/player1.tscn
 <<<<<<< Updated upstream:sprites/player1.tscn
+<<<<<<< Updated upstream:sprites/player1.tscn
 [gd_scene load_steps=26 format=3 uid="uid://dbkff1o5c0mne"]
 
 [ext_resource type="Texture2D" uid="uid://b1lctq7xyft4d" path="res://art/Soccorpia Asset Pack/Player sheets/Player Idles/Soccer Player Sprite(1)-Sheet.png" id="1_1scg8"]
@@ -164,6 +165,10 @@ animations = [{
 [gd_scene load_steps=3 format=3 uid="uid://dbkff1o5c0mne"]
 
 >>>>>>> Stashed changes:sprites/character_body_2d.tscn
+=======
+[gd_scene load_steps=3 format=3 uid="uid://dbkff1o5c0mne"]
+
+>>>>>>> Stashed changes:sprites/character_body_2d.tscn
 [sub_resource type="GDScript" id="GDScript_hq23e"]
 script/source = "extends CharacterBody2D  # Use CharacterBody2D for handling movement
 
@@ -208,6 +213,9 @@ func _process(delta):
 		animated_sprite.play(\"idle\")  # Replace with your idle animation name
 "
 <<<<<<< Updated upstream:sprites/player1.tscn
+<<<<<<< Updated upstream:sprites/player1.tscn
+>>>>>>> Stashed changes:sprites/character_body_2d.tscn
+=======
 >>>>>>> Stashed changes:sprites/character_body_2d.tscn
 =======
 >>>>>>> Stashed changes:sprites/character_body_2d.tscn
@@ -220,6 +228,9 @@ size = Vector2(11, 16)
 script = ExtResource("1_g1oe1")
 =======
 script = SubResource("GDScript_hq23e")
+<<<<<<< Updated upstream:sprites/player1.tscn
+>>>>>>> Stashed changes:sprites/character_body_2d.tscn
+=======
 >>>>>>> Stashed changes:sprites/character_body_2d.tscn
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

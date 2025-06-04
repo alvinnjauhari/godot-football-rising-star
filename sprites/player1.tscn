@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream:sprites/player1.tscn
-<<<<<<< Updated upstream:sprites/player1.tscn
-<<<<<<< Updated upstream:sprites/player1.tscn
-[gd_scene load_steps=26 format=3 uid="uid://dbkff1o5c0mne"]
+[gd_scene load_steps=26 format=3 uid="uid://x7wlm6fbiqyr"]
 
 [ext_resource type="Texture2D" uid="uid://b1lctq7xyft4d" path="res://art/Soccorpia Asset Pack/Player sheets/Player Idles/Soccer Player Sprite(1)-Sheet.png" id="1_1scg8"]
 [ext_resource type="Script" uid="uid://dfr6qd5kqj6m1" path="res://scripts/player_1.gd" id="1_g1oe1"]
@@ -158,80 +155,17 @@ animations = [{
 "name": &"walking",
 "speed": 6.0
 }]
-=======
-[gd_scene load_steps=3 format=3 uid="uid://dbkff1o5c0mne"]
-
-=======
-[gd_scene load_steps=3 format=3 uid="uid://dbkff1o5c0mne"]
-
->>>>>>> Stashed changes:sprites/character_body_2d.tscn
-=======
-[gd_scene load_steps=3 format=3 uid="uid://dbkff1o5c0mne"]
-
->>>>>>> Stashed changes:sprites/character_body_2d.tscn
-[sub_resource type="GDScript" id="GDScript_hq23e"]
-script/source = "extends CharacterBody2D  # Use CharacterBody2D for handling movement
-
-# Speed of the player
-var speed = 200
-
-# Declare the AnimatedSprite2D node with @onready
-@onready var animated_sprite = $AnimatedSprite2D
-
-# Update function to move the player
-func _process(delta):
-	# Create a new velocity vector
-	var move_direction = Vector2()
-
-	# Check for input and set direction
-	if Input.is_action_pressed(\"ui_right\"):  # Right
-		move_direction.x += 1
-		animated_sprite.flip_h = false  # Face right
-	elif Input.is_action_pressed(\"ui_left\"):  # Left
-		move_direction.x -= 1
-		animated_sprite.flip_h = true  # Face left
-
-	if Input.is_action_pressed(\"ui_up\"):  # Up
-		move_direction.y -= 1
-	elif Input.is_action_pressed(\"ui_down\"):  # Down
-		move_direction.y += 1
-
-	# Normalize the direction vector to avoid faster movement diagonally
-	if move_direction.length() > 0:
-		move_direction = move_direction.normalized() * speed
-
-	# Update the velocity of the CharacterBody2D
-	velocity = move_direction
-
-	# Move the character using the built-in method
-	move_and_slide()
-
-	# Set the animation based on movement direction
-	if velocity.length() > 0:
-		animated_sprite.play(\"walking\")  # Replace with your walking animation name
-	else:
-		animated_sprite.play(\"idle\")  # Replace with your idle animation name
-"
-<<<<<<< Updated upstream:sprites/player1.tscn
-<<<<<<< Updated upstream:sprites/player1.tscn
->>>>>>> Stashed changes:sprites/character_body_2d.tscn
-=======
->>>>>>> Stashed changes:sprites/character_body_2d.tscn
-=======
->>>>>>> Stashed changes:sprites/character_body_2d.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drwrm"]
 size = Vector2(11, 16)
 
 [node name="player" type="CharacterBody2D"]
-<<<<<<< Updated upstream:sprites/player1.tscn
 script = ExtResource("1_g1oe1")
-=======
-script = SubResource("GDScript_hq23e")
-<<<<<<< Updated upstream:sprites/player1.tscn
->>>>>>> Stashed changes:sprites/character_body_2d.tscn
-=======
->>>>>>> Stashed changes:sprites/character_body_2d.tscn
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_gwlao")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, -12)

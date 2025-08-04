@@ -156,20 +156,24 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_drwrm"]
-size = Vector2(11, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1oe1"]
+radius = 12.0416
 
 [node name="player" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
 script = ExtResource("1_g1oe1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_gwlao")
-animation = &"idle"
+animation = &"walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, -12)
-shape = SubResource("RectangleShape2D_drwrm")
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-1, -25)
+shape = SubResource("CircleShape2D_g1oe1")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]

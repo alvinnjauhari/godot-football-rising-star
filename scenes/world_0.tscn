@@ -1,31 +1,65 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4j20atvjsa3t"]
+[gd_scene load_steps=5 format=4 uid="uid://c4j20atvjsa3t"]
 
 [ext_resource type="Script" uid="uid://dcorhs66khuj7" path="res://scripts/world_0.gd" id="1_c81cj"]
-[ext_resource type="Texture2D" uid="uid://cya62qalix43c" path="res://art/Hana Caraka - Topdown Tileset [sample]/Tileset/Spring - simplified.png" id="1_syip4"]
-[ext_resource type="Texture2D" uid="uid://dj617gf6ob67y" path="res://assets/map/MAP.jpeg" id="2_i4dot"]
+[ext_resource type="TileSet" uid="uid://c54dm242168a4" path="res://scenes/world_0.tres" id="2_i4dot"]
 [ext_resource type="PackedScene" uid="uid://x7wlm6fbiqyr" path="res://sprites/player1.tscn" id="3_c81cj"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mqhf"]
-texture = ExtResource("1_syip4")
-0:0/size_in_atlas = Vector2i(3, 3)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bcyrs"]
-texture = ExtResource("2_i4dot")
-0:0/size_in_atlas = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_i4dot"]
-sources/0 = SubResource("TileSetAtlasSource_6mqhf")
-sources/1 = SubResource("TileSetAtlasSource_bcyrs")
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4dot"]
+radius = 14.0357
 
 [node name="world0" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_c81cj")
 metadata/_edit_vertical_guides_ = [0.0]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_i4dot")
+[node name="TileMap" type="Node" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
+z_as_relative = false
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD+/wEAAQAAAAAAAAD1//n/BAAAAAEAAAD1//r/BAAAAAEAAAD1//v/BAAAAAEAAAD1//z/BAAAAAEAAAD1//3/BAAAAAEAAAD4//n/BAAAAAEAAAD2//n/BAAAAAEAAAD2//r/BAAAAAEAAAD2//v/BAAAAAEAAAD2//z/BAAAAAEAAAD2//3/BAAAAAEAAADk/+n/BAAAAAAAAAA=")
+tile_set = ExtResource("2_i4dot")
+
+[node name="TileMapLayerCollision" type="TileMapLayer" parent="TileMap"]
+z_as_relative = false
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AABG/nr+BAAAAAAAAAA=")
+tile_set = ExtResource("2_i4dot")
+collision_visibility_mode = 1
 
 [node name="player" parent="." instance=ExtResource("3_c81cj")]
-position = Vector2(24, 33)
+position = Vector2(-328, -67)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="player"]
+position = Vector2(-2, -24)
+shape = SubResource("CircleShape2D_i4dot")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+self_modulate = Color(0, 0.642427, 0.642427, 1)
+position = Vector2(515, 37)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 1
+position = Vector2(73, 20)
+scale = Vector2(0.0779144, 1)
+polygon = PackedVector2Array(39.0237, -42, 14, -571, -1043, -574, -1048, 477, -4.40088, 472)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 1
+position = Vector2(-576, -542)
+rotation = 1.5708
+scale = Vector2(0.0761977, 1)
+polygon = PackedVector2Array(39.0237, -42, 14, -571, -1043, -574, -1048, 477, -4.40088, 472)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 1
+position = Vector2(-1035, 504)
+rotation = -3.14159
+scale = Vector2(0.951264, 0.0761977)
+polygon = PackedVector2Array(39.0237, -42, 14, -571, -1104.04, -524.949, -1088.27, 393.715, -4.40088, 472)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 1
+position = Vector2(-1017, 14)
+scale = Vector2(0.0779144, 1)
+polygon = PackedVector2Array(39.0237, -42, 29.6406, -240.367, 14, -571, -1043, -574, -1048, 477, -4.40088, 472)
